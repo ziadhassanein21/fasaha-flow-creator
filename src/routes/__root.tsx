@@ -96,6 +96,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "فصاحة — استعد ثقتك في العربية الفصحى" },
       { name: "twitter:description", content: "منصة ذكية تُصحّح كتاباتك اليومية وتحوّلها إلى فصحى احترافية، وتبني لك مسار تعلّم شخصيًا من أخطائك." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c99ec29a-f32c-4fa0-af3e-c33b64b9c568/id-preview-18f1790a--b2febfe4-97f6-4e72-b9ef-a9428cbc1656.lovable.app-1784595856041.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c99ec29a-f32c-4fa0-af3e-c33b64b9c568/id-preview-18f1790a--b2febfe4-97f6-4e72-b9ef-a9428cbc1656.lovable.app-1784595856041.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
