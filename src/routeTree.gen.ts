@@ -9,38 +9,295 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as OnboardingRouteImport } from './routes/onboarding'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRegisterRouteImport } from './routes/auth.register'
+import { Route as AuthOtpRouteImport } from './routes/auth.otp'
+import { Route as AuthLoginRouteImport } from './routes/auth.login'
+import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
+import { Route as AppTafsihRouteImport } from './routes/app.tafsih'
+import { Route as AppSayingsRouteImport } from './routes/app.sayings'
+import { Route as AppRulesRouteImport } from './routes/app.rules'
+import { Route as AppReviewRouteImport } from './routes/app.review'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppLibraryRouteImport } from './routes/app.library'
+import { Route as AppHistoryRouteImport } from './routes/app.history'
+import { Route as AppDiagnosticsRouteImport } from './routes/app.diagnostics'
+import { Route as AppDashboardRouteImport } from './routes/app.dashboard'
+import { Route as AppChallengesRouteImport } from './routes/app.challenges'
+import { Route as AppLibraryBookIdRouteImport } from './routes/app.library.$bookId'
+import { Route as AppChallengesMilestoneIdRouteImport } from './routes/app.challenges.$milestoneId'
 
+const OnboardingRoute = OnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRegisterRoute = AuthRegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthOtpRoute = AuthOtpRouteImport.update({
+  id: '/otp',
+  path: '/otp',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthLoginRoute = AuthLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AuthForgotRoute = AuthForgotRouteImport.update({
+  id: '/forgot',
+  path: '/forgot',
+  getParentRoute: () => AuthRoute,
+} as any)
+const AppTafsihRoute = AppTafsihRouteImport.update({
+  id: '/tafsih',
+  path: '/tafsih',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSayingsRoute = AppSayingsRouteImport.update({
+  id: '/sayings',
+  path: '/sayings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppRulesRoute = AppRulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReviewRoute = AppReviewRouteImport.update({
+  id: '/review',
+  path: '/review',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLibraryRoute = AppLibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHistoryRoute = AppHistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDiagnosticsRoute = AppDiagnosticsRouteImport.update({
+  id: '/diagnostics',
+  path: '/diagnostics',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppChallengesRoute = AppChallengesRouteImport.update({
+  id: '/challenges',
+  path: '/challenges',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLibraryBookIdRoute = AppLibraryBookIdRouteImport.update({
+  id: '/$bookId',
+  path: '/$bookId',
+  getParentRoute: () => AppLibraryRoute,
+} as any)
+const AppChallengesMilestoneIdRoute =
+  AppChallengesMilestoneIdRouteImport.update({
+    id: '/$milestoneId',
+    path: '/$milestoneId',
+    getParentRoute: () => AppChallengesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRouteWithChildren
+  '/onboarding': typeof OnboardingRoute
+  '/app/challenges': typeof AppChallengesRouteWithChildren
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/diagnostics': typeof AppDiagnosticsRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/library': typeof AppLibraryRouteWithChildren
+  '/app/profile': typeof AppProfileRoute
+  '/app/review': typeof AppReviewRoute
+  '/app/rules': typeof AppRulesRoute
+  '/app/sayings': typeof AppSayingsRoute
+  '/app/tafsih': typeof AppTafsihRoute
+  '/auth/forgot': typeof AuthForgotRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/otp': typeof AuthOtpRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/app/challenges/$milestoneId': typeof AppChallengesMilestoneIdRoute
+  '/app/library/$bookId': typeof AppLibraryBookIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRouteWithChildren
+  '/onboarding': typeof OnboardingRoute
+  '/app/challenges': typeof AppChallengesRouteWithChildren
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/diagnostics': typeof AppDiagnosticsRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/library': typeof AppLibraryRouteWithChildren
+  '/app/profile': typeof AppProfileRoute
+  '/app/review': typeof AppReviewRoute
+  '/app/rules': typeof AppRulesRoute
+  '/app/sayings': typeof AppSayingsRoute
+  '/app/tafsih': typeof AppTafsihRoute
+  '/auth/forgot': typeof AuthForgotRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/otp': typeof AuthOtpRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/app/challenges/$milestoneId': typeof AppChallengesMilestoneIdRoute
+  '/app/library/$bookId': typeof AppLibraryBookIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRouteWithChildren
+  '/onboarding': typeof OnboardingRoute
+  '/app/challenges': typeof AppChallengesRouteWithChildren
+  '/app/dashboard': typeof AppDashboardRoute
+  '/app/diagnostics': typeof AppDiagnosticsRoute
+  '/app/history': typeof AppHistoryRoute
+  '/app/library': typeof AppLibraryRouteWithChildren
+  '/app/profile': typeof AppProfileRoute
+  '/app/review': typeof AppReviewRoute
+  '/app/rules': typeof AppRulesRoute
+  '/app/sayings': typeof AppSayingsRoute
+  '/app/tafsih': typeof AppTafsihRoute
+  '/auth/forgot': typeof AuthForgotRoute
+  '/auth/login': typeof AuthLoginRoute
+  '/auth/otp': typeof AuthOtpRoute
+  '/auth/register': typeof AuthRegisterRoute
+  '/app/challenges/$milestoneId': typeof AppChallengesMilestoneIdRoute
+  '/app/library/$bookId': typeof AppLibraryBookIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/onboarding'
+    | '/app/challenges'
+    | '/app/dashboard'
+    | '/app/diagnostics'
+    | '/app/history'
+    | '/app/library'
+    | '/app/profile'
+    | '/app/review'
+    | '/app/rules'
+    | '/app/sayings'
+    | '/app/tafsih'
+    | '/auth/forgot'
+    | '/auth/login'
+    | '/auth/otp'
+    | '/auth/register'
+    | '/app/challenges/$milestoneId'
+    | '/app/library/$bookId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/onboarding'
+    | '/app/challenges'
+    | '/app/dashboard'
+    | '/app/diagnostics'
+    | '/app/history'
+    | '/app/library'
+    | '/app/profile'
+    | '/app/review'
+    | '/app/rules'
+    | '/app/sayings'
+    | '/app/tafsih'
+    | '/auth/forgot'
+    | '/auth/login'
+    | '/auth/otp'
+    | '/auth/register'
+    | '/app/challenges/$milestoneId'
+    | '/app/library/$bookId'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/onboarding'
+    | '/app/challenges'
+    | '/app/dashboard'
+    | '/app/diagnostics'
+    | '/app/history'
+    | '/app/library'
+    | '/app/profile'
+    | '/app/review'
+    | '/app/rules'
+    | '/app/sayings'
+    | '/app/tafsih'
+    | '/auth/forgot'
+    | '/auth/login'
+    | '/auth/otp'
+    | '/auth/register'
+    | '/app/challenges/$milestoneId'
+    | '/app/library/$bookId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  AuthRoute: typeof AuthRouteWithChildren
+  OnboardingRoute: typeof OnboardingRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/onboarding': {
+      id: '/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof OnboardingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +305,195 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth/register': {
+      id: '/auth/register'
+      path: '/register'
+      fullPath: '/auth/register'
+      preLoaderRoute: typeof AuthRegisterRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/auth/otp': {
+      id: '/auth/otp'
+      path: '/otp'
+      fullPath: '/auth/otp'
+      preLoaderRoute: typeof AuthOtpRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/auth/login': {
+      id: '/auth/login'
+      path: '/login'
+      fullPath: '/auth/login'
+      preLoaderRoute: typeof AuthLoginRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/auth/forgot': {
+      id: '/auth/forgot'
+      path: '/forgot'
+      fullPath: '/auth/forgot'
+      preLoaderRoute: typeof AuthForgotRouteImport
+      parentRoute: typeof AuthRoute
+    }
+    '/app/tafsih': {
+      id: '/app/tafsih'
+      path: '/tafsih'
+      fullPath: '/app/tafsih'
+      preLoaderRoute: typeof AppTafsihRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/sayings': {
+      id: '/app/sayings'
+      path: '/sayings'
+      fullPath: '/app/sayings'
+      preLoaderRoute: typeof AppSayingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/rules': {
+      id: '/app/rules'
+      path: '/rules'
+      fullPath: '/app/rules'
+      preLoaderRoute: typeof AppRulesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/review': {
+      id: '/app/review'
+      path: '/review'
+      fullPath: '/app/review'
+      preLoaderRoute: typeof AppReviewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/library': {
+      id: '/app/library'
+      path: '/library'
+      fullPath: '/app/library'
+      preLoaderRoute: typeof AppLibraryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/history': {
+      id: '/app/history'
+      path: '/history'
+      fullPath: '/app/history'
+      preLoaderRoute: typeof AppHistoryRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/diagnostics': {
+      id: '/app/diagnostics'
+      path: '/diagnostics'
+      fullPath: '/app/diagnostics'
+      preLoaderRoute: typeof AppDiagnosticsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/challenges': {
+      id: '/app/challenges'
+      path: '/challenges'
+      fullPath: '/app/challenges'
+      preLoaderRoute: typeof AppChallengesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/library/$bookId': {
+      id: '/app/library/$bookId'
+      path: '/$bookId'
+      fullPath: '/app/library/$bookId'
+      preLoaderRoute: typeof AppLibraryBookIdRouteImport
+      parentRoute: typeof AppLibraryRoute
+    }
+    '/app/challenges/$milestoneId': {
+      id: '/app/challenges/$milestoneId'
+      path: '/$milestoneId'
+      fullPath: '/app/challenges/$milestoneId'
+      preLoaderRoute: typeof AppChallengesMilestoneIdRouteImport
+      parentRoute: typeof AppChallengesRoute
+    }
   }
 }
 
+interface AppChallengesRouteChildren {
+  AppChallengesMilestoneIdRoute: typeof AppChallengesMilestoneIdRoute
+}
+
+const AppChallengesRouteChildren: AppChallengesRouteChildren = {
+  AppChallengesMilestoneIdRoute: AppChallengesMilestoneIdRoute,
+}
+
+const AppChallengesRouteWithChildren = AppChallengesRoute._addFileChildren(
+  AppChallengesRouteChildren,
+)
+
+interface AppLibraryRouteChildren {
+  AppLibraryBookIdRoute: typeof AppLibraryBookIdRoute
+}
+
+const AppLibraryRouteChildren: AppLibraryRouteChildren = {
+  AppLibraryBookIdRoute: AppLibraryBookIdRoute,
+}
+
+const AppLibraryRouteWithChildren = AppLibraryRoute._addFileChildren(
+  AppLibraryRouteChildren,
+)
+
+interface AppRouteChildren {
+  AppChallengesRoute: typeof AppChallengesRouteWithChildren
+  AppDashboardRoute: typeof AppDashboardRoute
+  AppDiagnosticsRoute: typeof AppDiagnosticsRoute
+  AppHistoryRoute: typeof AppHistoryRoute
+  AppLibraryRoute: typeof AppLibraryRouteWithChildren
+  AppProfileRoute: typeof AppProfileRoute
+  AppReviewRoute: typeof AppReviewRoute
+  AppRulesRoute: typeof AppRulesRoute
+  AppSayingsRoute: typeof AppSayingsRoute
+  AppTafsihRoute: typeof AppTafsihRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppChallengesRoute: AppChallengesRouteWithChildren,
+  AppDashboardRoute: AppDashboardRoute,
+  AppDiagnosticsRoute: AppDiagnosticsRoute,
+  AppHistoryRoute: AppHistoryRoute,
+  AppLibraryRoute: AppLibraryRouteWithChildren,
+  AppProfileRoute: AppProfileRoute,
+  AppReviewRoute: AppReviewRoute,
+  AppRulesRoute: AppRulesRoute,
+  AppSayingsRoute: AppSayingsRoute,
+  AppTafsihRoute: AppTafsihRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
+interface AuthRouteChildren {
+  AuthForgotRoute: typeof AuthForgotRoute
+  AuthLoginRoute: typeof AuthLoginRoute
+  AuthOtpRoute: typeof AuthOtpRoute
+  AuthRegisterRoute: typeof AuthRegisterRoute
+}
+
+const AuthRouteChildren: AuthRouteChildren = {
+  AuthForgotRoute: AuthForgotRoute,
+  AuthLoginRoute: AuthLoginRoute,
+  AuthOtpRoute: AuthOtpRoute,
+  AuthRegisterRoute: AuthRegisterRoute,
+}
+
+const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  AuthRoute: AuthRouteWithChildren,
+  OnboardingRoute: OnboardingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
