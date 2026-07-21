@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const nav = [
   { label: "المنهجية", href: "#how" },
@@ -45,6 +46,7 @@ export function SiteHeader() {
             ))}
           </div>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Link to="/auth/login" className="text-sm font-semibold text-foreground hover:text-primary transition-colors">
               دخول
             </Link>
@@ -54,14 +56,19 @@ export function SiteHeader() {
           </div>
         </nav>
 
-        {/* Mobile Nav Toggle */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center md:hidden text-foreground"
-          aria-label="القائمة"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile actions */}
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle variant="ghost" />
+
+          {/* Mobile Nav Toggle */}
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-10 w-10 place-items-center text-foreground"
+            aria-label="القائمة"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
