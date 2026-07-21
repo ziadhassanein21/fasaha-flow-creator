@@ -60,14 +60,15 @@ export function SiteHeader() {
         <div className="flex items-center gap-1 md:hidden">
           <ThemeToggle variant="ghost" />
 
-        {/* Mobile Nav Toggle */}
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center md:hidden text-foreground"
-          aria-label="القائمة"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+          {/* Mobile Nav Toggle */}
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-10 w-10 place-items-center text-foreground"
+            aria-label="القائمة"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
