@@ -34,6 +34,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 export const Route = createFileRoute("/app")({
   head: () => ({ meta: [{ title: "فصاحة — لوحة التحكم" }] }),
@@ -111,6 +112,7 @@ function AppLayout() {
               />
             </div>
             <div className="ms-auto flex items-center gap-2">
+              <ThemeToggle />
 
               <button
                 type="button"
